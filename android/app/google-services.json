@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "185195273192",
+    "project_id": "messanger-app-ad524",
+    "storage_bucket": "messanger-app-ad524.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185195273192:android:84720879956d83852d225d",
+        "android_client_info": {
+          "package_name": "com.example.messanger_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185195273192-b5l7tc76nhnhej4slho6k52r36dtsts5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiyV37s6_HgWAEprwMhdRFUoSnO-rtC78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185195273192-b5l7tc76nhnhej4slho6k52r36dtsts5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
