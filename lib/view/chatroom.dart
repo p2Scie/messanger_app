@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:messanger_app/view/chat_page.dart';
+import 'package:messanger_app/view/profile_page.dart';
 
 class Chatroom extends StatefulWidget {
   const Chatroom({Key? key}) : super(key: key);
@@ -46,20 +48,10 @@ class _ChatroomState extends State<Chatroom> {
   }
 
   Widget bodyPage() {
-    if(currentPage == 0){
-      return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Text("Chat"),
-      ],
-      );
-    }else{
-      return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Text("Profile"),
-      ],
-      );
+    switch(currentPage){
+      case 0: return ChatPage();
+      case 1: return Profile();
+      default : return Text("oops"); //Page 404
     }
   }
 }
