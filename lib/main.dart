@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:messanger_app/view/auth_page.dart';
 import 'firebase_options.dart';
+
 
 
 void main() async{
@@ -17,11 +19,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Messanger Chat',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(title: 'Messanger'),
     );
   }
 }
@@ -39,15 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
   
   @override
   Widget build(BuildContext context) {
-    
-    return Scaffold(
-      appBar: AppBar(
-       
-        title: Text(widget.title),
-      ),
-      body: Container(
-
-      ) 
+    return const MaterialApp(
+      title: "Messanger Chat",
+      debugShowCheckedModeBanner: false,
+      home: AuthPage() 
     );
   }
 }
