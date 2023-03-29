@@ -1,18 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Utilisateur {
-  //attributs
+  //Attributs
   late String uid;
-  String? pseudo;
-  DateTime? birthday;
-  String? nom;
-  String? prenom;
-  String? avatar;
   late String email;
-
-  //constructor
-
-  //
+  String? pseudo;
+  String? avatar;
+  
+  //Constructeurs
   Utilisateur.empty() {
     uid = "";
     email = "";
@@ -22,12 +17,7 @@ class Utilisateur {
     uid = snapshot.id;
     Map<String, dynamic> map = snapshot.data() as Map<String, dynamic>;
     pseudo = map["PSEUDO"];
-    nom = map["NOM"];
-    prenom = map["PRENOM"];
     avatar = map["AVATAR"];
     email = map["EMAIL"];
-
-    Timestamp? timestamp = map['BIRTHDAY'];
-    birthday = timestamp?.toDate();
   }
 }
