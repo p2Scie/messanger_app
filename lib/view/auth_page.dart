@@ -4,7 +4,6 @@ import 'package:messanger_app/view/chatroom.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -28,7 +27,7 @@ class _AuthPageState extends State<AuthPage> {
           if (defaultTargetPlatform == TargetPlatform.iOS) {
             return CupertinoAlertDialog(
               title: Text("Erreur"),
-              content: Lottie.asset('error-animation.json'),
+              content: Text("error"),
               actions: [
                 TextButton(
                     onPressed: () {
@@ -40,7 +39,7 @@ class _AuthPageState extends State<AuthPage> {
           } else {
             return AlertDialog(
               title: Text("Erreur"),
-              content: Lottie.asset('error-animation.json'),
+              content: Text("error"),
               actions: [
                 TextButton(
                     onPressed: () {
