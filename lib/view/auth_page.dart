@@ -6,14 +6,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class AuthPage extends StatefulWidget {
+  const AuthPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<AuthPage> createState() => _AuthPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _AuthPageState extends State<AuthPage> {
   //Variables
   List<bool> selection = [true, false];
   TextEditingController email = TextEditingController();
@@ -61,22 +61,23 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget bodyPage() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         // Logo
         Container(
           width: 300,
           height: 150,
           decoration: BoxDecoration(
-              color: Colors.amber,
               borderRadius: BorderRadius.circular(20),
               image: const DecorationImage(
-                  image: AssetImage('assets/flutter_logo.png'),
+                  image: AssetImage('flutter_logo.png'),
                   fit: BoxFit.contain)),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 50),
 
         //toogleButton
         ToggleButtons(
+            borderRadius: BorderRadius.circular(10),
             onPressed: (value) {
               setState(() {
                 selection[0] = value == 0;
@@ -88,6 +89,7 @@ class _LoginPageState extends State<LoginPage> {
               Text('Connexion'),
               Text('Inscription'),
             ]),
+
         const SizedBox(height: 10),
         //Adresse email
         TextField(
@@ -95,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
               prefixIcon: const Icon(Icons.mail),
-              hintText: "Entrer votre adresse mail",
+              hintText: "Entrez votre adresse mail",
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
         ),
@@ -106,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
           obscureText: true,
           decoration: InputDecoration(
               prefixIcon: const Icon(Icons.lock),
-              hintText: "Entrer votre mot de passe",
+              hintText: "Entrez votre mot de passe",
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
         ),
