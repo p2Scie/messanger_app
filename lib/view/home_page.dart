@@ -49,9 +49,9 @@ class _HomePageState extends State<HomePage> {
 
   Widget bodyPage() {
     switch(currentPage){
-      case 0: return ChatPage();
-      case 1: return Profile();
-      default : return Text("oops"); //Page 404
+      case 0: return const ChatPage();
+      case 1: return const Profile();
+      default : return const Text("oops"); //Page 404
     }
   }
 }
