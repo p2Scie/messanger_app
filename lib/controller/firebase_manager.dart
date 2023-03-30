@@ -3,6 +3,8 @@ import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
+import 'package:messanger_app/controller/globale.dart';
 import 'package:messanger_app/model/utilisateur.dart';
 import 'package:random_string/random_string.dart';
 
@@ -51,6 +53,11 @@ class FirebaseManager {
     }
 
     return getUser(uid!);
+  }
+
+  //Deconnecter un utilisateur
+  logout() async {
+    await auth.signOut();
   }
 
   //Upload avatar

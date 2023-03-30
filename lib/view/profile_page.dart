@@ -1,7 +1,9 @@
 import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:messanger_app/controller/globale.dart';
+import 'package:messanger_app/view/auth_page.dart';
 import '../controller/firebase_manager.dart';
 
 class Profile extends StatefulWidget {
@@ -18,7 +20,7 @@ class _ProfileState extends State<Profile> {
     Uint8List? dataImage;
 
   // Méthodes
-  openImage() async{
+  openImage(BuildContext context) async{
     FilePickerResult? resultat = await FilePicker.platform.pickFiles(
       type: FileType.image,
       withData: true
@@ -26,11 +28,11 @@ class _ProfileState extends State<Profile> {
     if(resultat!=null){
       nameImage = resultat.files.last.name;
       dataImage = resultat.files.first.bytes;
-      confirmationPop();
+      confirmationPop(context);
     }
   }
 
-  confirmationPop(){
+  confirmationPop(BuildContext context){
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -74,19 +76,19 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10.0), 
-        child: bodyPage()
+        child: bodyPage(context)
         ),
     );
   }
 
-  Widget bodyPage() {
+  Widget bodyPage(BuildContext context) {
     return Center(
       child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children : [
         InkWell(
           onTap: (){
-            openImage();
+            openImage(context);
           },
           child: CircleAvatar(
             radius: 60,
@@ -95,10 +97,21 @@ class _ProfileState extends State<Profile> {
         ),
         const SizedBox(height: 50),
         Text(myUser.pseudo??"Unknown"),
-        const SizedBox(height: 50),
+        const SizedBox(height: 30),
         Text(myUser.email),
+        const SizedBox(height: 30),
+        Text(lang??"Langue indisponible"),
         const SizedBox(height: 50),
-        Text(lang??"Langue indisponible")
+        TextButton(
+          onPressed: () {
+            FirebaseManager().logout();
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context)=>const AuthPage()
+              ));
+          },
+          child: const Text('Deconnexion')
+        )
+
       ],
       )
     );
