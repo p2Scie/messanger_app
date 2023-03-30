@@ -53,7 +53,6 @@ class _ProfileState extends State<Profile> {
                       setState(() {
                         urlImage = value;
                         myUser.avatar = urlImage;
-
                       });
 
                       Map<String,dynamic> map = {
@@ -61,11 +60,9 @@ class _ProfileState extends State<Profile> {
                       };
                       FirebaseManager().updateUser(myUser.uid, map);
                       Navigator.pop(context);
-
                     });
-
                   },
-                  child: const Text("Confimration")
+                  child: const Text("Confirmation")
               )
             ],
 
