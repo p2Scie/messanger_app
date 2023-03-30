@@ -1,6 +1,6 @@
 import 'package:messanger_app/controller/firebase_manager.dart';
 import 'package:messanger_app/controller/globale.dart';
-import 'package:messanger_app/view/chatroom.dart';
+import 'package:messanger_app/view/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -124,7 +124,7 @@ class _AuthPageState extends State<AuthPage> {
                   });
 
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const Chatroom();
+                    return const HomePage();
                   }));
                 }).catchError((onError) {
                   // afficher un popup erreur de mot de passe
@@ -141,7 +141,7 @@ class _AuthPageState extends State<AuthPage> {
                   });
 
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const Chatroom();
+                    return const HomePage();
                   }));
                 }).catchError((onError) {
                   // afficher un pop erreur de mot de passe
