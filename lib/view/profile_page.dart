@@ -1,8 +1,9 @@
 import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:messanger_app/controller/globale.dart';
-
+import 'package:messanger_app/view/auth_page.dart';
 import '../controller/firebase_manager.dart';
 
 class Profile extends StatefulWidget {
@@ -42,7 +43,6 @@ class _ProfileState extends State<Profile> {
             actions: [
               TextButton(onPressed: (){
                 Navigator.pop(context);
-
               },
                   child: const Text("Annulation")
               ),
@@ -85,7 +85,6 @@ class _ProfileState extends State<Profile> {
     return Center(
       child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
-
       children : [
         InkWell(
           onTap: (){
@@ -94,14 +93,25 @@ class _ProfileState extends State<Profile> {
           child: CircleAvatar(
             radius: 60,
             backgroundImage: NetworkImage(myUser.avatar??defaultImage),
-
           ),
         ),
         const SizedBox(height: 50),
         Text(myUser.pseudo??"Unknown"),
+        const SizedBox(height: 30),
+        Text(myUser.email),
+        const SizedBox(height: 30),
+        Text(lang??"Langue indisponible"),
         const SizedBox(height: 50),
-        Text(myUser.email??"Update your mail"),
-        const SizedBox(height: 50),
+        TextButton(
+          onPressed: () {
+            FirebaseManager().logout();
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context)=>const AuthPage()
+              ));
+          },
+          child: const Text('Deconnexion')
+        )
+
       ],
       )
     );

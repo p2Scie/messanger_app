@@ -4,7 +4,6 @@ import 'package:messanger_app/view/auth_page.dart';
 import 'firebase_options.dart';
 
 
-
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -40,7 +39,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
+  //Variables 
+  late TextEditingController controller;
+  //late LanguageIdentifier identifer;
+
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(

@@ -1,5 +1,7 @@
 import 'package:messanger_app/model/utilisateur.dart';
+import 'dart:ui' as ui;
 
+String lang = ui.window.locale.languageCode;
 Utilisateur myUser = Utilisateur.empty();
 String senderID = "";
 String receiverID = "";
