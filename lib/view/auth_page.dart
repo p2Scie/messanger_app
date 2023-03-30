@@ -69,7 +69,7 @@ class _AuthPageState extends State<AuthPage> {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               image: const DecorationImage(
-                  image: AssetImage('flutter_logo.png'),
+                  image: AssetImage('assets/flutter_logo.png'),
                   fit: BoxFit.contain)),
         ),
         const SizedBox(height: 50),
