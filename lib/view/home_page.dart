@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:messanger_app/view/chat_page.dart';
 import 'package:messanger_app/view/profile_page.dart';
 
-class Chatroom extends StatefulWidget {
-  const Chatroom({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<Chatroom> createState() => _ChatroomState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _ChatroomState extends State<Chatroom> {
+class _HomePageState extends State<HomePage> {
   // Variables
   int currentPage = 0;
   List<bool> selection = [true, false];
@@ -49,9 +49,9 @@ class _ChatroomState extends State<Chatroom> {
 
   Widget bodyPage() {
     switch(currentPage){
-      case 0: return ChatPage();
-      case 1: return Profile();
-      default : return Text("oops"); //Page 404
+      case 0: return const ChatPage();
+      case 1: return const Profile();
+      default : return const Text("oops"); //Page 404
     }
   }
 }
