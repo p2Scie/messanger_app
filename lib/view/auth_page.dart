@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:messanger_app/controller/firebase_manager.dart';
 import 'package:messanger_app/controller/globale.dart';
 import 'package:messanger_app/view/home_page.dart';
@@ -69,7 +70,7 @@ class _AuthPageState extends State<AuthPage> {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               image: const DecorationImage(
-                  image: AssetImage('flutter_logo.png'),
+                  image: AssetImage('assets/flutter_logo.png'),
                   fit: BoxFit.contain)),
         ),
         const SizedBox(height: 50),
@@ -123,7 +124,17 @@ class _AuthPageState extends State<AuthPage> {
                     myUser = value;
                   });
 
+
+                  Stream<QuerySnapshot<Map<String, dynamic>>> users = FirebaseManager().cloudUsers.snapshots();
+                  users.listen((event) {
+                    event.docs.forEach((element) {
+                      print(element['UID']);
+                      if(element['UID'] != myUser.uid) { receiverID = element['UID'];}
+                    });
+                  });
+
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
+
                     return const HomePage();
                   }));
                 }).catchError((onError) {

@@ -20,4 +20,6 @@ class Utilisateur {
     avatar = map["AVATAR"];
     email = map["EMAIL"];
   }
+
+  toMap() {}
 }
