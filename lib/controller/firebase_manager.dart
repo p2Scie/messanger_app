@@ -3,6 +3,8 @@ import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
+import 'package:messanger_app/controller/globale.dart';
 import 'package:messanger_app/model/utilisateur.dart';
 
 class FirebaseManager {
@@ -51,13 +53,17 @@ class FirebaseManager {
     return getUser(uid!);
   }
 
+  //Deconnecter un utilisateur
+  logout() async {
+    await auth.signOut();
+  }
+
   //Upload avatar
   Future<String> upload(String destination,String nameImage, Uint8List bytes) async {
     String url="";
     TaskSnapshot snapshot = await storage.ref("$destination/$nameImage").putData(bytes);
     url = await snapshot.ref.getDownloadURL();
     return url;
-
   }
 
   updateUser(String uid, Map<String,dynamic> map){
