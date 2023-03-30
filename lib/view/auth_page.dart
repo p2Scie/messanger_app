@@ -1,10 +1,9 @@
 import 'package:messanger_app/controller/firebase_manager.dart';
 import 'package:messanger_app/controller/globale.dart';
-import 'package:messanger_app/view/chatroom.dart';
+import 'package:messanger_app/view/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -28,7 +27,7 @@ class _AuthPageState extends State<AuthPage> {
           if (defaultTargetPlatform == TargetPlatform.iOS) {
             return CupertinoAlertDialog(
               title: Text("Erreur"),
-              content: Lottie.asset('error-animation.json'),
+              content: Text("error"),
               actions: [
                 TextButton(
                     onPressed: () {
@@ -40,7 +39,7 @@ class _AuthPageState extends State<AuthPage> {
           } else {
             return AlertDialog(
               title: Text("Erreur"),
-              content: Lottie.asset('error-animation.json'),
+              content: Text("error"),
               actions: [
                 TextButton(
                     onPressed: () {
@@ -125,7 +124,7 @@ class _AuthPageState extends State<AuthPage> {
                   });
 
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const Chatroom();
+                    return const HomePage();
                   }));
                 }).catchError((onError) {
                   // afficher un popup erreur de mot de passe
@@ -142,7 +141,7 @@ class _AuthPageState extends State<AuthPage> {
                   });
 
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const Chatroom();
+                    return const HomePage();
                   }));
                 }).catchError((onError) {
                   // afficher un pop erreur de mot de passe

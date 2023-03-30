@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -45,7 +47,20 @@ class FirebaseManager {
     if(uid == null) {
       return Future.error(('Problème de connexion'));
     }
-    
+
     return getUser(uid!);
   }
+
+  //Upload avatar
+  Future<String> upload(String destination,String nameImage, Uint8List bytes) async {
+    String url="";
+    TaskSnapshot snapshot = await storage.ref("$destination/$nameImage").putData(bytes);
+    url = await snapshot.ref.getDownloadURL();
+    return url;
+
+  }
+
+  updateUser(String uid, Map<String,dynamic> map){
+    cloudUsers.doc(uid).update(map);
+}
 }
