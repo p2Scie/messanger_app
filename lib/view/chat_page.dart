@@ -9,7 +9,7 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   // Variables
-
+  List<String> conversations = ["Conversation 1","Conversation 2","Conversation 3"]; //Correspond aux discussion actives de l'user
   // Méthodes
 
 
@@ -24,10 +24,11 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Widget bodyPage() {
-    return Column(
-      children : const [
-        Text("ChatPage page")
-      ],
+    return ListView.builder(
+      itemCount: conversations.length,
+      itemBuilder: (context, index){
+        return Text(conversations[index]);
+      },
     );
   }
 }
