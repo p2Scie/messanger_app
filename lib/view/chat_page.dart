@@ -25,7 +25,7 @@ class _ChatPageState extends State<ChatPage> {
 
   Widget bodyPage() {
     return StreamBuilder<QuerySnapshot>(
-        stream: FirebaseManager().cloudMessages.orderBy("DATE", descending: true).snapshots(),
+        stream: FirebaseManager().cloudMessages.orderBy("DATE", descending: false).snapshots(),
         builder: (context, snap) {
           List messages = snap.data?.docs ?? [];
           if (messages.isEmpty) {
