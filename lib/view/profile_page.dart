@@ -1,6 +1,4 @@
 import 'dart:typed_data';
-import 'dart:ui' as ui;
-import 'package:devicelocale/devicelocale.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:messanger_app/controller/globale.dart';
@@ -71,14 +69,6 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  getDeviceLanguage(){
-    String locale = Devicelocale.currentLocale.toString();
-    if(locale != ""){
-      return locale;
-    }
-    return false;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,7 +98,7 @@ class _ProfileState extends State<Profile> {
         const SizedBox(height: 50),
         Text(myUser.email),
         const SizedBox(height: 50),
-        Text(ui.window.locale.languageCode??"Langue")
+        Text(lang??"Langue indisponible")
       ],
       )
     );
