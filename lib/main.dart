@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:messanger_app/view/auth_page.dart';
 import 'firebase_options.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
 
 
 void main() async{
@@ -42,7 +41,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   //Variables 
   late TextEditingController controller;
-  late LanguageIdentifier identifer;
+  //late LanguageIdentifier identifer;
 
 
   @override

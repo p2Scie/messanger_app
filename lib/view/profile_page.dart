@@ -20,7 +20,7 @@ class _ProfileState extends State<Profile> {
     Uint8List? dataImage;
 
   // Méthodes
-  openImage(BuildContext context) async{
+  openImage() async{
     FilePickerResult? resultat = await FilePicker.platform.pickFiles(
       type: FileType.image,
       withData: true
@@ -28,11 +28,11 @@ class _ProfileState extends State<Profile> {
     if(resultat!=null){
       nameImage = resultat.files.last.name;
       dataImage = resultat.files.first.bytes;
-      confirmationPop(context);
+      confirmationPop();
     }
   }
 
-  confirmationPop(BuildContext context){
+  confirmationPop(){
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -76,19 +76,19 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10.0), 
-        child: bodyPage(context)
+        child: bodyPage()
         ),
     );
   }
 
-  Widget bodyPage(BuildContext context) {
+  Widget bodyPage() {
     return Center(
       child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children : [
         InkWell(
           onTap: (){
-            openImage(context);
+            openImage();
           },
           child: CircleAvatar(
             radius: 60,
